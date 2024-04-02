@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import searchCountry from "./api";
+import SearchBar from './SearchCountry';
+import CountryList from "./CountryList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+    const [countries, setCountries]= useState([]);
+    const handleClick=async(term)=>{
+        const result = await searchCountry(term);
+        setCountries(result);
+    };
+    return <div>
+               <SearchBar onSubmit={handleClick}/>
+            <CountryList countries={countries}/>
+        </div>
+    
+    
+
 }
+
+
+
+
+
 
 export default App;
