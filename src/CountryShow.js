@@ -5,7 +5,7 @@ function CountryShow({country}){
     <p className="text-lg mb-2">Name: {country.name.common}</p>
     <p className="text-lg mb-2">Capital: {country.capital[0]}</p>
     <p className="text-lg mb-2">Population: {country.population}</p>
-    <p className="text-lg mb-2">Region: {country.region}</p>
+    <p className="text-lg mb-2">Region: {country.region}</p>s
     
   </div>
 
